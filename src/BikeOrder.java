@@ -15,6 +15,7 @@ public class BikeOrder implements EventListener {
         windowContent = new JPanel();
         bikeList = new JComboBox(bikeModel);
         bikeList.setSelectedIndex(0);
+
         windowContent.add(bikeList);
 
 
