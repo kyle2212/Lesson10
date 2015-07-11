@@ -17,9 +17,13 @@ public class OrderWindow implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JComboBox selectedOrder = (JComboBox) e.getSource();
-        if (selectedOrder.getSelectedIndex() == 1) {
-            System.out.println ("1 muthafukar");
+
+        JComboBox selectedBike = (JComboBox) e.getSource();
+        int orderQuantity = parent.getOrderQuantity();
+        try {
+            parent.validateOrder(selectedBike.getSelectedItem().toString(), orderQuantity);
+        } catch (TooManyBikesException e1) {
+            e1.printStackTrace();
         }
 
     }

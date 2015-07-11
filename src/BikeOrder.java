@@ -52,8 +52,19 @@ public class BikeOrder implements EventListener {
                                      int quantity) throws TooManyBikesException {
 //        perform some data validation, and if the entered
 //        the quantity or model is invalid, do the following:
-//        throw new TooManyBikesException("Cannot ship" + quantity
-//                + "bikes of the model" + bikeModel);
+        if (quantity < 1){
+            throw new TooManyBikesException("At least one bike needs to be ordered");
+        } else {
+            if (bikeModel == "Bike 1") {
+                throw new TooManyBikesException("Bike 1 is sold out");
+            }
+        }
+        throw new TooManyBikesException("Cannot ship" + quantity
+                + "bikes of the model" + bikeModel);
+    }
+
+    public int getOrderQuantity() {
+        return Integer.parseInt(String.valueOf(orderQuantity.getText()));
     }
 
     public static void main(String[] args) {
